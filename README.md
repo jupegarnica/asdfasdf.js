@@ -8,7 +8,11 @@ Feel free to submit any [suggestions/issues](https://github.com/jupegarnica/asdf
 
 Watch our [demo](http://jupegarnica.github.io/asdfasdf.js/)
 
-# Usage
+# GET THE CODE
+
+Download [asdfasdf.min.js](https://raw.githubusercontent.com/jupegarnica/asdfasdf.js/gh-pages/asdfasdf.min.js)
+
+# USAGE
 
 asdfasdf depends on [jQuery](http://jquery.com/) and [jQuery.cookie](https://github.com/carhartl/jquery-cookie). Just add them if your are not using them and init calling asdfasdf.js (is not needed to wait until the DOM is ready)
 
