@@ -1,18 +1,15 @@
 /**
- * User: jupegarnica
+ * author: jupegarnica.com
+ * License: MIT
  * Date: 2015-01-16
  * Time: 12:12 PM
  */
-/* 
- * polyfill String.contains()
- * */
+
 if(!String.prototype.contains) {
     String.prototype.contains = function() {
         return String.prototype.indexOf.apply(this, arguments) !== -1;
     };
 }
-// Polyfill Array.prototype.some 
-// Reference: http://es5.github.io/#x15.4.4.17
 if(!Array.prototype.some) {
     Array.prototype.some = function(fun /*, thisArg*/ ) {
         'use strict';
