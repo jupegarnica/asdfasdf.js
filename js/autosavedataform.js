@@ -14,76 +14,84 @@ if(!String.prototype.contains) {
 }
 // Polyfill Array.prototype.some 
 // Reference: http://es5.github.io/#x15.4.4.17
-if (!Array.prototype.some) {
-  Array.prototype.some = function(fun /*, thisArg*/) {
-    'use strict';
-
-    if (this == null) {
-      throw new TypeError('Array.prototype.some called on null or undefined');
-    }
-
-    if (typeof fun !== 'function') {
-      throw new TypeError();
-    }
-
-    var t = Object(this);
-    var len = t.length >>> 0;
-
-    var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
-    for (var i = 0; i < len; i++) {
-      if (i in t && fun.call(thisArg, t[i], i, t)) {
-        return true;
-      }
-    }
-
-    return false;
-  };
+if(!Array.prototype.some) {
+    Array.prototype.some = function(fun /*, thisArg*/ ) {
+        'use strict';
+        if(this == null) {
+            throw new TypeError('Array.prototype.some called on null or undefined');
+        }
+        if(typeof fun !== 'function') {
+            throw new TypeError();
+        }
+        var t = Object(this);
+        var len = t.length >>> 0;
+        var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
+        for(var i = 0; i < len; i++) {
+            if(i in t && fun.call(thisArg, t[i], i, t)) {
+                return true;
+            }
+        }
+        return false;
+    };
 }
-function asdfasdf(options,$) {
+//init on DOM ready
+
+function asdfasdf(a, b) {
+    $(function() {
+        asdfasdfInit(a, b);
+    });
+};
+
+function asdfasdfInit(options, $) {
     $ = $ || jQuery;
     options = options || {};
     var setting = {
         showFeedback: true,
+        showLoaded: true,
+        msgLoadDataText: "Data Loaded",
         msgStyle: "position: fixed;top: 2em;color: white;background: tomato;right: 50%;transform: translateX(50%);width: auto;display: inline-block;padding: 0.5em;border-radius: 0.3em;text-transform: uppercase;",
         msgText: "auto saved",
-        msgHide:  500 ,
+        msgHide: 500,
         elements: 'input, textarea, select',
         expires: 2,
     }
     for(var prop in setting) {
         setting[prop] = options[prop] || setting[prop];
         options[prop] && console.log('Default setting changed:', prop, options[prop]);
-    }    
-    
+    }
     (function autosave() {
         $(setting.elements)
             .on('change', onChangeInput);
+
         function onChangeInput() {
             var cookie = loadCookie() || '{}';
             cookie = JSON.parse(cookie);
             var ids = Object.keys(cookie);
             var that = $(this);
-            var id , value, name;
+            var id, value, name;
             if(that.prop('type') === "checkbox") {
                 value = that.prop('checked');
-                id = '[name="' +  that.prop('name') + '"]' + '[value="' +  that.prop('value') + '"]' ;
+                id = '[name="' + that.prop('name') + '"]' + '[value="' + that.prop('value') + '"]';
             } else if(that.prop('type') == "radio") {
                 value = that.prop('checked');
-                name = '[name="' +  that.prop('name') + '"]';
-                id = name + '[value="' +  that.prop('value') + '"]' ;
+                name = '[name="' + that.prop('name') + '"]';
+                id = name + '[value="' + that.prop('value') + '"]';
                 var borrar;
-                if (ids.some(function(identificador){borrar=identificador; return identificador.contains(name) })){
+                if(ids.some(function(identificador) {
+                    borrar = identificador;
+                    return identificador.contains(name)
+                })) {
                     cookie[borrar] = undefined;
                 }
             } else if(that.is('select')) {
                 var option = that.find('option:selected');
-                id = 'select[name="'+ that.prop('name') +'"]' + ' option:contains("' + option.val() + '")';
+                id = 'select[name="' + that.prop('name') + '"]' + ' option:contains("' + option.val() + '")';
                 value = option.prop('selected');
             } else {
                 value = that.val();
-                id = '[name="' +  that.prop('name') + '"]' ;
+                id = '[name="' + that.prop('name') + '"]';
             }
-            console.log(id,value);
+            console.log(id, value);
             cookie[id] = value;
             saveCookie(cookie);
         };
@@ -99,6 +107,7 @@ function asdfasdf(options,$) {
                 var that;
                 if(cookie) {
                     cookie = JSON.parse(cookie);
+                    var loadMsgShowed = false;
                     Object.keys(cookie)
                         .forEach(function(id) {
                             that = $(id);
@@ -113,17 +122,27 @@ function asdfasdf(options,$) {
                             } else {
                                 that.val(cookie[id]);
                             }
+                            if(!loadMsgShowed && setting.showFeedback) {
+                                var msg = '<span style="' + setting.msgStyle + '">' + setting.msgLoadDataText + '</span>';
+                                $(msg)
+                                    .appendTo('body')
+                                    .delay(setting.msgHide)
+                                    .fadeOut(2000);
+                                loadMsgShowed = true;
+                            }
                         });
                 }
                 done = true;
             });
     })();
+
     function removeCookie() {
         $.removeCookie('__asdfasdf', {
             expires: setting.expires
         });
     }
     window.deleteAutoSaveFormData = removeCookie;
+
     function saveCookie(cookie) {
         var strCookie;
         if(window.btoa && cookie) {
@@ -134,11 +153,15 @@ function asdfasdf(options,$) {
         $.cookie('__asdfasdf', strCookie, {
             expires: setting.expires
         });
-        if (setting.showFeedback) {
+        if(setting.showFeedback) {
             var msg = '<span style="' + setting.msgStyle + '">' + setting.msgText + '</span>';
-            $(msg).appendTo('body').delay(setting.msgHide).fadeOut(1000);
+            $(msg)
+                .appendTo('body')
+                .delay(setting.msgHide)
+                .fadeOut(1000);
         }
     }
+
     function loadCookie() {
         var strCookie;
         var cookie = $.cookie('__asdfasdf') || "";
@@ -150,7 +173,3 @@ function asdfasdf(options,$) {
         return strCookie;
     }
 }
-
-$(function(){
-    asdfas();
-});
