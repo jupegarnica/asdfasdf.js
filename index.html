@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>asdfasdf : (Auto save data form)</title>
+		<meta name="description" content="asdfasdf : (Auto save data form)" />
+		<meta name="keywords" content=" form, inputs, html5, js, jquery, plugins" />
+		<meta name="author" content="jupegarnica" />
+		<link rel="shortcut icon" href="//jupegarnica.com/images/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+        
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+        <script src="js/autosaveform.js"></script>
+        
+	</head>
+	<body>
+		<div class="container">
+			<header class="clearfix">
+				<h1>asdfasdf.js</h1>
+                <span>(Auto save data form)</span>
+                <span class="by">by Jupegarnica</span>
+                <h2>The easiest way to don't let your user lose their data while filling a form.</h2>
+                
+				<nav>
+					<a href="" class="bp-icon" data-info=""><span></span></a>
+					<a href="" class="bp-icon" data-info=""><span></span></a>
+					<a href="" class="bp-icon" data-info="Get the code"><span>Get the code</span></a>
+					<a href="//jupegarnica.com" class="bp-icon" data-info="Author website"><span>Jupegarnica.com</span></a>
+				</nav>
+			</header>	
+			<div class="main">
+				<form class="cbp-mc-form">
+					<div class="cbp-mc-column">
+	  					<label for="email">Email Address</label>
+	  					<input type="text" id="email" name="email" placeholder="jon@doe.com">
+	  					<label>Type of Talent</label>
+	  					<select id="talent" name="talent">
+	  						<option>Choose a talent</option>
+	  						<option>Ninja silence</option>
+	  						<option>Sumo power</option>
+	  						<option>Samurai precision</option>
+	  					</select>
+                        <label for="vehicle">Vehicle</label>
+                        I have a bike:
+                        <input type="checkbox" name="vehicle" value="Bike"><br>
+                        I have a car:
+                        <input type="checkbox" name="vehicle" value="Car"><br>
+                        I have an airplane:
+                        <input type="checkbox" name="vehicle" value="Airplane"><br>
+	  				</div>
+	  				<div class="cbp-mc-column">
+	  					<label for="phone">Phone Number</label>
+	  					<input type="text" id="phone" name="phone" placeholder="+351 999 999">
+	  					<label>Occupation</label>
+	  					<select id="occupation" name="occupation">
+	  						<option>Choose an occupation</option>
+	  						<option>Web Designer</option>
+	  						<option>Web Developer</option>
+	  						<option>Hybrid</option>
+	  					</select>
+	  					<label for="gagdet">Favorite Gadget</label>
+	  					<input type="text" id="gagdet" name="gagdet" placeholder="Annoy-a-tron">
+                        <label for="sex">Gender</label>
+                        <input type="radio" name="sex" value="male">Male
+                        <br>
+                        <input type="radio" name="sex" value="female">Female
+	  				</div>
+	  				<div class="cbp-mc-column">
+	  					<label for="power">Special power</label>
+	  					<input type="text" id="power" name="power" placeholder="Anti-gravity">
+	  					<label for="weapon">Weapon of choice</label>
+	  					<input type="weapon" id="weapon" name="weapon" placeholder="Lightsaber">
+                        <label for="bio">Biography</label>
+	  					<textarea id="bio" name="bio"></textarea>
+
+                        
+	  				</div>
+                    <div class="cbp-mc-submit-wrap"><button class="cbp-mc-submit" onclick="javascript:window.location.reload()" value="" >Refresh to lose* your data</button>
+                        <p>You will see the data during 24h or clean your cookies.  You can <a href="javascript:deleteAutoSaveFormData();window.location.reload()">remove data now.</a></p>
+                        
+                    </div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
