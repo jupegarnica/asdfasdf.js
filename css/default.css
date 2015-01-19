@@ -18,6 +18,7 @@ a {
 
 a:hover {
 	color: #000;
+    text-decoration:underline;
 }
 
 .container > header {
@@ -139,8 +140,9 @@ a:hover {
 	}
 }
 
-.by {
+header a , .by{
     color: lightblue ;
+    text-decoration:none;
 }
 .cbp-mc-form button {
 	background: #10689a;
