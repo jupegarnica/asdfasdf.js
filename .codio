@@ -3,7 +3,8 @@
 
 // Run button configuration
   "commands": {
-        "Deploy": "git add .;git commit;git push origin gh-pages"
+        "Deploy": "git add .;git commit;git push origin gh-pages",
+      "uglify": "uglifyjs  -o asdfasdf.min.js   js/asdfasdf.js "
   },
 
 // Preview button configuration

@@ -17,7 +17,7 @@ a {
 }
 
 a:hover {
-	color: #000;
+	color: #fff;
     text-decoration:underline;
 }
 
@@ -144,7 +144,7 @@ header a , .by{
     color: lightblue ;
     text-decoration:none;
 }
-.cbp-mc-form button {
+button {
 	background: #10689a;
 	border: none;
 	color: #fff;
@@ -156,4 +156,5 @@ header a , .by{
 	font-size: 1.1em;
 	border-radius: 2px;
 	letter-spacing: 1px;
+    margin-bottom:15px;
 }
