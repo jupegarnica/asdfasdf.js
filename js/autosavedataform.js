@@ -152,5 +152,5 @@ function asdfasdf(options,$) {
 }
 
 $(function(){
-    asdfasd();
+    asdfas();
 });
