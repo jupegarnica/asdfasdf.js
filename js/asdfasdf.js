@@ -1,5 +1,4 @@
 /**
- * Created with Autosave form.
  * User: jupegarnica
  * Date: 2015-01-16
  * Time: 12:12 PM
@@ -35,7 +34,6 @@ if(!Array.prototype.some) {
     };
 }
 //init on DOM ready
-
 function asdfasdf(a, b) {
     $(function() {
         asdfasdfInit(a, b);
