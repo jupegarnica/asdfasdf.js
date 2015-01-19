@@ -46,7 +46,7 @@ The default setting is:
         //Time to keep the data
         expires: 2,
     }
-```javascript
+```
 
 
 
