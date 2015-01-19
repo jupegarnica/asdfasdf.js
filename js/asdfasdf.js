@@ -3,6 +3,7 @@
  * License: MIT
  * Date: 2015-01-16
  * Time: 12:12 PM
+ * Version 1.02
  */
 
 if(!String.prototype.contains) {
@@ -35,6 +36,10 @@ function asdfasdf(a, b) {
     $(function() {
         asdfasdfInit(a, b);
     });
+    if (!asdfasdfStarted) {
+        asdfasdfInit(a, b);
+    }
+    
 };
 
 function asdfasdfInit(options, $) {
@@ -95,7 +100,7 @@ function asdfasdfInit(options, $) {
         var done = false;
         $(document)
             .ready(function() {
-                if(done) {
+                if(window.asdfasdfStarted) {
                     return;
                 }
                 var cookie = loadCookie();
@@ -127,7 +132,7 @@ function asdfasdfInit(options, $) {
                             }
                         });
                 }
-                done = true;
+                window.asdfasdfStarted = true;
             });
     })();
 
