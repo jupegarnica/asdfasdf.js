@@ -36,10 +36,11 @@ function asdfasdf(a, b) {
     $(function() {
         asdfasdfInit(a, b);
     });
+    window.asdfasdfStarted = window.asdfasdfStarted || undefined;
     if (!asdfasdfStarted) {
         asdfasdfInit(a, b);
     }
-    
+
 };
 
 function asdfasdfInit(options, $) {
