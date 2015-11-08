@@ -1,5 +1,5 @@
 # ASDFASDF.JS
-### -Auto Save Data Form-
+## -Auto Save Data Form-
 ### **The easiest way to not let your users lose their data while filling a form.**
 
 Feel free to submit any [suggestions/issues](https://github.com/jupegarnica/asdfasdf.js/issues) and [contribute](https://github.com/jupegarnica/asdfasdf.js/pulls).
@@ -10,7 +10,7 @@ Watch our [demo](http://jupegarnica.github.io/asdfasdf.js/)
 
 # GET THE CODE
 
-Download [asdfasdf.min.js](https://raw.githubusercontent.com/jupegarnica/asdfasdf.js/gh-pages/asdfasdf.min.js)
+Download [asdfasdf.min.js](https://cdn.rawgit.com/jupegarnica/asdfasdf.js/gh-pages/asdfasdf.min.js)
 
 # USAGE
 
@@ -19,11 +19,18 @@ asdfasdf depends on [jQuery](http://jquery.com/) and [jQuery.cookie](https://git
 ```HTML
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery.cookie.min.js"></script>
-  <script type="text/javascript" src="js/asdfasdf.js"></script>
+  <script type="text/javascript" src="js/asdfasdf.min.js"></script>
   <script type="text/javascript" >
-        asdfasdf(); 
+        asdfasdf();
   </script>
 ```
+
+Or include it from a CDN:
+
+```HTML
+  <script type="text/javascript" src="https://cdn.rawgit.com/jupegarnica/asdfasdf.js/gh-pages/asdfasdf.min.js"></script>
+```
+
 asdfasdf is totally configurable passing a setting object when called.
 ```javascript
   asdfasdf({elements:'input.autosave'});
@@ -34,19 +41,19 @@ The default setting is:
  var defaultsetting = {
         //show feedback when autosave data
         showFeedback: true,  
-        
+
         //show feedback when autoload data
         showLoaded: true,     
-        
+
         // feedback message properties
-        msgLoadDataText: "Data Loaded", 
+        msgLoadDataText: "Data Loaded",
         msgStyle: "position: fixed;top: 2em;color: white;background: tomato;right: 50%;transform: translateX(50%);width: auto;display: inline-block;padding: 0.5em;border-radius: 0.3em;text-transform: uppercase;",
         msgText: "auto saved",
         msgHide: 500,
-        
+
         //Elements to be saved
         elements: 'input, textarea, select',
-        
+
         //Time to keep the data
         expires: 2,
     }
@@ -95,4 +102,4 @@ THE SOFTWARE.
 
 # Author
 
-Made well but quickly by [jupegarnica.com](http://jupegarnica.com)
+Made by [jupegarnica.com](http://jupegarnica.com)
